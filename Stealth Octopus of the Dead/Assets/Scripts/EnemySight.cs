@@ -8,7 +8,6 @@ public class EnemySight : MonoBehaviour {
 
     //==============================
     //References to components and objects 
-    private NavMeshAgent navAgent;
     private Light Spotlight;
     private GameObject Player;
     private GameEnder endgame;
@@ -27,7 +26,6 @@ public class EnemySight : MonoBehaviour {
     void Start () {
         //First find our references 
         Player = GameObject.FindGameObjectWithTag("Player");
-        navAgent = gameObject.GetComponent<NavMeshAgent>();
         Spotlight = gameObject.GetComponentInChildren<Light>();
         endgame = gameObject.GetComponent<GameEnder>();
 
