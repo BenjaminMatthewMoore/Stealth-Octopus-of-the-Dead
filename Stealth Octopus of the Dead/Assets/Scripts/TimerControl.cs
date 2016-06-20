@@ -3,11 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TimeRemainingCounter : MonoBehaviour
+public class TimerControl : MonoBehaviour
 {
 
-    public Text minuteText;
-    public Text secondText;
+    public Text TimeText;
     public float timeOfGame = 300.0f;
     bool stopTime = false;
     string currentScene;
@@ -30,9 +29,7 @@ public class TimeRemainingCounter : MonoBehaviour
                 seconds = 0;
                 SceneManager.LoadScene(0);
             }
-
-            minuteText.text = minutes + ": ";
-            secondText.text = minuteText.text +"" + seconds.ToString("00");
+            TimeText.text = minutes.ToString() + ": " + seconds.ToString("00");
         }
     }
 }
