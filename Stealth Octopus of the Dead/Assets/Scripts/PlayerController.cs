@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
         // Jumping
         if (Input.GetKey(KeyCode.Space) && isGrounded == true || Input.GetButton("Jump") && isGrounded == true)
         {
-            isGrounded = false;
             rb.velocity = new Vector3(hMovement.x, vMovement.y, 0f);
         }
         lastFrameVelocity = rb.velocity;
