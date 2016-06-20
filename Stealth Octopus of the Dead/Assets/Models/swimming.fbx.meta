@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f5c5ea6944f879f44a6af8a02b93f4ef
-timeCreated: 1466397707
+guid: 5a2a85075e85d494486c3ed0a7d08e48
+timeCreated: 1466406319
 licenseType: Pro
 ModelImporter:
   serializedVersion: 19
@@ -50,8 +50,8 @@ ModelImporter:
     100084: mixamorig:Spine1
     100086: mixamorig:Spine2
     100088: scooba1:Body
-    100090: //RootNode
-    100092: snorkle
+    100090: snorkle
+    100092: //RootNode
     400000: air_tank:air_tank
     400002: default1
     400004: items
@@ -97,8 +97,8 @@ ModelImporter:
     400084: mixamorig:Spine1
     400086: mixamorig:Spine2
     400088: scooba1:Body
-    400090: //RootNode
-    400092: snorkle
+    400090: snorkle
+    400092: //RootNode
     2300000: air_tank:air_tank
     2300002: default1
     3300000: air_tank:air_tank
@@ -108,7 +108,7 @@ ModelImporter:
     4300004: snorkle
     4300006: items
     4300008: air_tank:air_tank
-    7400000: swim
+    7400000: swimming
     9500000: //RootNode
     13700000: items
     13700002: scooba1:Body
@@ -135,10 +135,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: swim
-      takeName: swim
+      name: swimming
+      takeName: swimming
       firstFrame: 1
-      lastFrame: 90
+      lastFrame: 107
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -160,8 +160,6 @@ ModelImporter:
       events: []
       transformMask:
       - path: 
-        weight: 1
-      - path: air_tank:air_tank
         weight: 1
       - path: default1
         weight: 1
@@ -192,6 +190,8 @@ ModelImporter:
       - path: mixamorig:Hips/mixamorig:Spine
         weight: 1
       - path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1
+        weight: 1
+      - path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/air_tank:air_tank
         weight: 1
       - path: mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1/mixamorig:Spine2
         weight: 1

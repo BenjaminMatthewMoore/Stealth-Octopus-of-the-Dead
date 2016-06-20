@@ -10,6 +10,7 @@ public class Backstab : MonoBehaviour
     public float attackBlinkDelay;
     public float AttackRange;
     private Vector3 startPos;
+    bool attacking;
 
     int closestIndex;
     GameObject closestEnemy = null;
@@ -18,13 +19,14 @@ public class Backstab : MonoBehaviour
     void Start()
     {
         startPos = this.transform.position;
+        attacking = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         findClosestEnemy();
-        if (Input.GetKey(KeyCode.E) && closestEnemy != null)
+        if (Input.GetKey(KeyCode.E) && closestEnemy != null && !attacking)
         {
             startPos = this.transform.position;
             {
@@ -76,12 +78,14 @@ public class Backstab : MonoBehaviour
     IEnumerator DoActivateCoroutine()
 
     {
+        attacking = true;
         activeState = ActiveState.BlinkTo;
         this.transform.position = closestEnemy.transform.position;
         this.GetComponent<Rigidbody>().velocity = Vector3.zero;
         this.GetComponent<Rigidbody>().Sleep();
         DestroyObject(closestEnemy);
         yield return new WaitForSeconds(attackBlinkDelay);
+        attacking = false;
         activeState = ActiveState.BlinkBack;
         this.transform.position = startPos;
     }
