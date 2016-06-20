@@ -26,7 +26,7 @@ public class TimerControl : MonoBehaviour
         {
             timeRemaining -= Time.deltaTime;
 
-            float minutes = Mathf.Floor(timeOfGame / 60);
+            float minutes = Mathf.Floor(timeRemaining / 60);
             float seconds = timeRemaining % 60;
 
             if (minutes < 0 && seconds <= 0)

@@ -27,6 +27,9 @@ public class GameEnder : MonoBehaviour {
             TimerControl control = GameObject.FindGameObjectWithTag("TimerControl").GetComponent<TimerControl>();
             float score = control.timeOfGame - control.timeRemaining;
             PlayerPrefs.SetFloat(levelnumber, score);
+            //save a playerPref to remember the most recent level
+            PlayerPrefs.SetInt("recent", UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+            //Save the player prefs. 
             PlayerPrefs.Save();
 
             EndLevel();
