@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 00c4d74b69aaa8045be457127b8979e8
 timeCreated: 1466395281
 licenseType: Pro
+=======
+guid: 99ca860c23e14204da87848d20338439
+timeCreated: 1466395256
+licenseType: Free
+>>>>>>> 4d0f36e150d8bd9050472ea6bf947bfc1104daf0
 TextureImporter:
   fileIDToRecycleName:
     8900000: generatedCubemap
