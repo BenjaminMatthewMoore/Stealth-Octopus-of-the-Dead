@@ -22,7 +22,14 @@ public class GameEnder : MonoBehaviour {
     {
       if (col.gameObject.tag == "Player")
         {
-            EndLevel(); 
+            //Save the time remaining to player prefs. 
+            string levelnumber = "level" + UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex.ToString();
+            TimerControl control = GameObject.FindGameObjectWithTag("TimerControl").GetComponent<TimerControl>();
+            float score = control.timeOfGame - control.timeRemaining;
+            PlayerPrefs.SetFloat(levelnumber, score);
+            PlayerPrefs.Save();
+
+            EndLevel();
         }
     }
 
