@@ -8,8 +8,15 @@ public class TimerControl : MonoBehaviour
 
     public Text TimeText;
     public float timeOfGame = 300.0f;
+    public float timeRemaining; 
     bool stopTime = false;
     string currentScene;
+
+   
+    void Start()
+    {
+        timeRemaining = timeOfGame; 
+    }
 
     // Update is called once per frame
 
@@ -17,10 +24,10 @@ public class TimerControl : MonoBehaviour
     {
         if (stopTime == false)
         {
-            timeOfGame -= Time.deltaTime;
+            timeRemaining -= Time.deltaTime;
 
             float minutes = Mathf.Floor(timeOfGame / 60);
-            float seconds = timeOfGame % 60;
+            float seconds = timeRemaining % 60;
 
             if (minutes < 0 && seconds <= 0)
             {
