@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: ee171d8fd336f0440a40576614e7f3d2
+timeCreated: 1466394563
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: scooba:Head
+    100002: scooba:HeadTop_End
+    100004: scooba:Hips
+    100006: scooba:LeftArm
+    100008: scooba:LeftFoot
+    100010: scooba:LeftForeArm
+    100012: scooba:LeftHand
+    100014: scooba:LeftHandIndex1
+    100016: scooba:LeftHandIndex2
+    100018: scooba:LeftHandIndex3
+    100020: scooba:LeftHandIndex4
+    100022: scooba:LeftHandThumb1
+    100024: scooba:LeftHandThumb2
+    100026: scooba:LeftHandThumb3
+    100028: scooba:LeftHandThumb4
+    100030: scooba:LeftLeg
+    100032: scooba:LeftShoulder
+    100034: scooba:LeftToe_End
+    100036: scooba:LeftToeBase
+    100038: scooba:LeftUpLeg
+    100040: scooba:Neck
+    100042: scooba:polySurface6
+    100044: scooba:RightArm
+    100046: scooba:RightFoot
+    100048: scooba:RightForeArm
+    100050: scooba:RightHand
+    100052: scooba:RightHandIndex1
+    100054: scooba:RightHandIndex2
+    100056: scooba:RightHandIndex3
+    100058: scooba:RightHandIndex4
+    100060: scooba:RightHandThumb1
+    100062: scooba:RightHandThumb2
+    100064: scooba:RightHandThumb3
+    100066: scooba:RightHandThumb4
+    100068: scooba:RightLeg
+    100070: scooba:RightShoulder
+    100072: scooba:RightToe_End
+    100074: scooba:RightToeBase
+    100076: scooba:RightUpLeg
+    100078: scooba:Spine
+    100080: scooba:Spine1
+    100082: scooba:Spine2
+    100084: //RootNode
+    400000: scooba:Head
+    400002: scooba:HeadTop_End
+    400004: scooba:Hips
+    400006: scooba:LeftArm
+    400008: scooba:LeftFoot
+    400010: scooba:LeftForeArm
+    400012: scooba:LeftHand
+    400014: scooba:LeftHandIndex1
+    400016: scooba:LeftHandIndex2
+    400018: scooba:LeftHandIndex3
+    400020: scooba:LeftHandIndex4
+    400022: scooba:LeftHandThumb1
+    400024: scooba:LeftHandThumb2
+    400026: scooba:LeftHandThumb3
+    400028: scooba:LeftHandThumb4
+    400030: scooba:LeftLeg
+    400032: scooba:LeftShoulder
+    400034: scooba:LeftToe_End
+    400036: scooba:LeftToeBase
+    400038: scooba:LeftUpLeg
+    400040: scooba:Neck
+    400042: scooba:polySurface6
+    400044: scooba:RightArm
+    400046: scooba:RightFoot
+    400048: scooba:RightForeArm
+    400050: scooba:RightHand
+    400052: scooba:RightHandIndex1
+    400054: scooba:RightHandIndex2
+    400056: scooba:RightHandIndex3
+    400058: scooba:RightHandIndex4
+    400060: scooba:RightHandThumb1
+    400062: scooba:RightHandThumb2
+    400064: scooba:RightHandThumb3
+    400066: scooba:RightHandThumb4
+    400068: scooba:RightLeg
+    400070: scooba:RightShoulder
+    400072: scooba:RightToe_End
+    400074: scooba:RightToeBase
+    400076: scooba:RightUpLeg
+    400078: scooba:Spine
+    400080: scooba:Spine1
+    400082: scooba:Spine2
+    400084: //RootNode
+    4300000: scooba:polySurface6
+    7400000: mixamo.com
+    9500000: //RootNode
+    13700000: scooba:polySurface6
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
