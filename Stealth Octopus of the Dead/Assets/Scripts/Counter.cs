@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Counter : MonoBehaviour
+public class TimeRemainingCounter : MonoBehaviour
 {
 
     public Text minuteText;
