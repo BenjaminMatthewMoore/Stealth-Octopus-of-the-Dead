@@ -6,12 +6,14 @@ public class EnemySight : MonoBehaviour {
     //===============================
     //Vartiable Delcarations 
 
+    public int scenetoload; 
     public bool PlayerInSight;
     public Vector3 lastKnownLocation;
 
     private NavMeshAgent navAgent;
     private Light Spotlight;
     private GameObject Player;
+    private GameEnder endgame; 
     
 
 	// Use this for initialization
@@ -19,8 +21,8 @@ public class EnemySight : MonoBehaviour {
         //First find our references 
         Player = GameObject.FindGameObjectWithTag("Player");
         navAgent = gameObject.GetComponent<NavMeshAgent>();
-        Spotlight = gameObject.GetComponentInChildren<Light>(); 
-
+        Spotlight = gameObject.GetComponentInChildren<Light>();
+        endgame = gameObject.GetComponent<GameEnder>(); 
 
 	}
 	
@@ -33,8 +35,8 @@ public class EnemySight : MonoBehaviour {
 
         if (angle < Spotlight.spotAngle /2 )
         {
-            //Player in sight
-            Debug.Log("Player Spotted"); 
+            //player is in sight so end the level. 
+            endgame.EndLevel(); 
         }
 
 
