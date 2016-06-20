@@ -39,15 +39,23 @@ public class EnemySight : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //See if the player is within the view of the spotlight. 
+        //See if the player is within the view and range of the spotlight. 
+        //Angle: 
         Vector3 direction = Player.transform.position - transform.position;
         float angle = Vector3.Angle(direction, Spotlight.transform.forward);
-
-        if (angle < Spotlight.spotAngle / 2 && Spotlight.enabled)
+        //Range: 
+        float distance = Vector3.Distance(Player.transform.position, transform.position);
+        if (angle < Spotlight.spotAngle / 2 && Spotlight.enabled && distance <= Spotlight.range)
         {
-            //player is in sight so end the level. 
-            PlayerInSight = true;
-            endgame.EndLevel();
+            //player is in sight, now make sure no objects are blocking the view by using a raycast
+            direction = Player.transform.position - transform.position;
+            direction.Normalize();
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction, out hit) && hit.collider.gameObject.tag == "Player")
+            {
+                PlayerInSight = true;
+            }
+            else PlayerInSight = false; 
         }
         else PlayerInSight = false;
 
@@ -57,6 +65,12 @@ public class EnemySight : MonoBehaviour {
         else if (Spotlight.enabled == false) //but if the countdown is over, and the light is still turned off we need to turn it back on
         {
             Spotlight.enabled = true; 
+        }
+
+        //if the player is in sight end the level. 
+        if (PlayerInSight)
+        {
+            endgame.EndLevel(); 
         }
 
 	}
