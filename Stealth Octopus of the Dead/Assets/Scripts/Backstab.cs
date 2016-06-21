@@ -6,7 +6,7 @@ public class Backstab : MonoBehaviour
 
     private enum ActiveState { BlinkTo, BlinkBack };
     private ActiveState activeState;
-    [Range(0,0.5f)]
+    [Range(0, 0.5f)]
     public float attackBlinkDelay;
     public float AttackRange;
     private Vector3 startPos;
@@ -24,7 +24,7 @@ public class Backstab : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         findClosestEnemy();
         if (Input.GetKey(KeyCode.E) && closestEnemy != null && !attacking)
@@ -60,7 +60,7 @@ public class Backstab : MonoBehaviour
             foundEnemy = true;
             Vector3 tempDist = this.transform.position - hitColliders[i].transform.position;
             float dist = tempDist.magnitude;
-            if (dist < distance || distance == 0)
+            if (dist > distance)
             {
                 distance = dist;
                 closestIndex = i;
