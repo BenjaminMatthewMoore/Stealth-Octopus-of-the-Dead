@@ -10,8 +10,9 @@ public class Backstab : MonoBehaviour
     public float attackBlinkDelay;
     public float AttackRange;
     private Vector3 startPos;
+    public float closestDistance;
     bool attacking;
-
+    public GameObject[] enemyList;
     int closestIndex;
     public GameObject closestEnemy;
     // Use this for initialization
@@ -27,14 +28,19 @@ public class Backstab : MonoBehaviour
     void Update()
     {
         findClosestEnemy();
+        if (closestEnemy != null)
+        {
+            Vector3 temp = this.transform.position - closestEnemy.transform.position;
+            float closestDistance = temp.magnitude;
+        }
         if (Input.GetKey(KeyCode.E) && closestEnemy != null && !attacking)
         {
             startPos = this.transform.position;
             {
                 Vector3 tempDist = this.transform.position - closestEnemy.transform.position;
                 float dist = tempDist.magnitude;
-
-                if (dist <= AttackRange)
+                closestDistance = dist;
+                if (closestDistance <= AttackRange)
                 {
                     StartCoroutine(DoActivateCoroutine());
                     closestEnemy = null;
@@ -46,29 +52,22 @@ public class Backstab : MonoBehaviour
 
     void findClosestEnemy()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, AttackRange);
+      enemyList = GameObject.FindGameObjectsWithTag("Enemy");
         int i = 0;
-        bool foundEnemy = false;
         float distance = 0;
-        while (i < hitColliders.Length)
+        while (i < enemyList.Length)
         {
-            if (hitColliders[i].tag != "Enemy")
-            {
-                i++;
-                break;
-            }
-            foundEnemy = true;
-            Vector3 tempDist = this.transform.position - hitColliders[i].transform.position;
+            Vector3 tempDist = this.transform.position - enemyList[i].transform.position;
             float dist = tempDist.magnitude;
-            if (dist > distance)
+            if (dist <= distance)
             {
                 distance = dist;
                 closestIndex = i;
             }
             i++;
         }
-        if (foundEnemy)
-            closestEnemy = hitColliders[closestIndex].gameObject;
+        if(enemyList.Length > 0)
+            closestEnemy = enemyList[closestIndex].gameObject;
     }
 
 
