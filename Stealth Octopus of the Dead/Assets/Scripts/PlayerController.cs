@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         // Jumping
-        if (Input.GetKey(KeyCode.Space) && isGrounded == true || Input.GetButton("Jump") && isGrounded == true)
+        if (Input.GetKey(KeyCode.W) && isGrounded == true || Input.GetButton("Jump") && isGrounded == true)
         {
             rb.velocity = new Vector3(hMovement.x, vMovement.y, 0f);
         }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         //Shooting
         //Add time to the timeSinceShot variable 
         timeSinceShot += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && timeSinceShot >= RateOfFire)
+        if (Input.GetKeyDown(KeyCode.Space) && timeSinceShot >= RateOfFire)
         {
             timeSinceShot = 0.0f;
             GameObject projectile; 
