@@ -16,6 +16,7 @@ public class Backstab : MonoBehaviour
     public int closestIndex;
     public GameObject closestEnemy;
     public int killScore;
+    ParticleSystem smokeSystem;
     // Use this for initialization
 
     void Start()
@@ -24,6 +25,9 @@ public class Backstab : MonoBehaviour
         attacking = false;
         closestEnemy = null;
         killScore = 0;
+        smokeSystem = GetComponentInChildren<ParticleSystem>();
+        smokeSystem.Stop();
+        smokeSystem.Clear();
     }
 
     // Update is called once per frame
@@ -39,12 +43,14 @@ public class Backstab : MonoBehaviour
         {
             startPos = this.transform.position;
             {
+
                 Vector3 tempDist = this.transform.position - closestEnemy.transform.position;
                 float dist = tempDist.magnitude;
                 closestDistance = dist;
                 if (closestDistance <= AttackRange)
                 {
                     StartCoroutine(DoActivateCoroutine());
+                    smokeSystem.Play();
                     killScore++;
                     closestEnemy = null;
                 }
@@ -88,6 +94,8 @@ public class Backstab : MonoBehaviour
         this.GetComponent<Rigidbody>().Sleep();
         DestroyObject(closestEnemy);
         yield return new WaitForSeconds(attackBlinkDelay);
+        smokeSystem.Clear();
+        smokeSystem.Stop(); Debug.Log("RTUN");
         attacking = false;
         activeState = ActiveState.BlinkBack;
         this.transform.position = startPos;
