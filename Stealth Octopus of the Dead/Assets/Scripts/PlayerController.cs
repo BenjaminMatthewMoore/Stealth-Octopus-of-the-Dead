@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 
     //cache the rigid body
     public Rigidbody rb;
-
+    private Backstab attack;
     //=====================
     //Varaibles for shooting
     [Tooltip("This should be a prefab of the object the player will shoot")]
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
-
+        attack = GetComponentInChildren<Backstab>();
         //Create the pool of projectiles 
         Projectiles = new GameObject[ProjectilePoolSize];
         Vector3 pos = new Vector3(-100, 0, 0); 
@@ -53,11 +53,17 @@ public class PlayerController : MonoBehaviour
         {
             Projectiles[i] = (GameObject)Instantiate(ProjectilePrefab, pos, Quaternion.identity); 
         }
+        attack.attacking = false;
     }
 
     // Called before physics...
     void FixedUpdate()
     { 
+        if(attack.attacking)
+        {
+            rb.Sleep();
+            return;
+        }
         if(rb.velocity.y == lastFrameVelocity.y)
         {
             isGrounded = true;
