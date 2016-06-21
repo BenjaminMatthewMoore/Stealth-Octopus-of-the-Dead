@@ -13,7 +13,7 @@ public class Backstab : MonoBehaviour
     public float closestDistance;
     bool attacking;
     public GameObject[] enemyList;
-    int closestIndex;
+    public int closestIndex;
     public GameObject closestEnemy;
     public int killScore;
     // Use this for initialization
@@ -62,7 +62,7 @@ public class Backstab : MonoBehaviour
         {
             Vector3 tempDist = this.transform.position - enemyList[i].transform.position;
             float dist = tempDist.magnitude;
-            if (dist <= distance)
+            if (dist <= distance || distance == 0)
             {
                 distance = dist;
                 closestIndex = i;
