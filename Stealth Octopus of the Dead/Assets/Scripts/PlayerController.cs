@@ -7,6 +7,19 @@ public class PlayerController : MonoBehaviour
     //cache the rigid body
     public Rigidbody rb;
 
+    //=====================
+    //Varaibles for shooting
+    [Tooltip("This should be a prefab of the object the player will shoot")]
+    public GameObject ProjectilePrefab;
+    [Tooltip("This is the time in seconds between shots")]
+    public double RateOfFire;
+    //This is how long it has been since the last shot was fired
+    private double timeSinceShot = 0.0f;
+    [Tooltip("The maximum number of projectiles that can exist at once")]
+    public int ProjectilePoolSize ;
+    private GameObject[] Projectiles; 
+    //=====================
+
     [Tooltip("Velocity added to the player x axis")]
     public float speed;
 
@@ -32,6 +45,14 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         isGrounded = true;
+
+        //Create the pool of projectiles 
+        Projectiles = new GameObject[ProjectilePoolSize];
+        Vector3 pos = new Vector3(-100, 0, 0); 
+        for (int i = 0; i < ProjectilePoolSize; i++)
+        {
+            Projectiles[i] = (GameObject)Instantiate(ProjectilePrefab, pos, Quaternion.identity); 
+        }
     }
 
     // Called before physics...
@@ -76,5 +97,26 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(hMovement.x, vMovement.y, 0f);
         }
         lastFrameVelocity = rb.velocity;
+        //Shooting
+        //Add time to the timeSinceShot variable 
+        timeSinceShot += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && timeSinceShot >= RateOfFire)
+        {
+            timeSinceShot = 0.0f;
+            GameObject projectile; 
+            //Get an inActive projectile and shoot it
+            for (int i = 0; i < ProjectilePoolSize; i++)
+            {
+                projectile = Projectiles[i];
+                Debug.Log("almost"); 
+                if (!projectile.GetComponent<Projectile>().GetActive())
+                {
+                    Debug.Log("Boom"); 
+                    projectile.GetComponent<Projectile>().Activate(transform.position, transform.forward);
+                    timeSinceShot = 0.0f;
+                    break; 
+                }
+            }
+        }
     }
 }
