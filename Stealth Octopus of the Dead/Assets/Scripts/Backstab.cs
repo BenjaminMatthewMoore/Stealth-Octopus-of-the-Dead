@@ -15,6 +15,7 @@ public class Backstab : MonoBehaviour
     public GameObject[] enemyList;
     int closestIndex;
     public GameObject closestEnemy;
+    public int killScore;
     // Use this for initialization
 
     void Start()
@@ -22,6 +23,7 @@ public class Backstab : MonoBehaviour
         startPos = this.transform.position;
         attacking = false;
         closestEnemy = null;
+        killScore = 0;
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class Backstab : MonoBehaviour
                 if (closestDistance <= AttackRange)
                 {
                     StartCoroutine(DoActivateCoroutine());
+                    killScore++;
                     closestEnemy = null;
                 }
             }
