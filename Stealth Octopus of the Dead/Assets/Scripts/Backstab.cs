@@ -16,7 +16,7 @@ public class Backstab : MonoBehaviour
     public int closestIndex;
     public GameObject closestEnemy;
     public int killScore;
-    public ParticleSystem smokeSystem;
+    ParticleSystem smokeSystem;
     // Use this for initialization
 
     void Start()
@@ -26,8 +26,8 @@ public class Backstab : MonoBehaviour
         closestEnemy = null;
         killScore = 0;
         smokeSystem = GetComponentInChildren<ParticleSystem>();
-        smokeSystem.Clear();
         smokeSystem.Stop();
+        smokeSystem.Clear();
     }
 
     // Update is called once per frame
