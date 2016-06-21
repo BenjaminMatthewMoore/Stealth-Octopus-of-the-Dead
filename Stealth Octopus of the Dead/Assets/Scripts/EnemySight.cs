@@ -26,8 +26,8 @@ public class EnemySight : MonoBehaviour {
     private double DetectionLevel;
     [Tooltip("How quickly the enemy's detection level will be reduced")]
     public float SightCooldownSpeed;
-
-
+    [Tooltip("% of the lights range that the enemy can detect upto: example: if this set to 75, and the lights range is 10m, the enemy can detect upto 7.5m away")]
+    public float DetectionRange; 
     private double CountdownRemaining; 
     //=============================
 
@@ -55,7 +55,7 @@ public class EnemySight : MonoBehaviour {
         float angle = Vector3.Angle(direction, Spotlight.transform.forward);
         //Range: 
         float distance = Vector3.Distance(Player.transform.position, transform.position);
-        if (angle < Spotlight.spotAngle / 2 && Spotlight.enabled && distance <= Spotlight.range)
+        if (angle < Spotlight.spotAngle / 2 && Spotlight.enabled && distance <= Spotlight.range * (DetectionRange * 0.01))
         {
             //player is in sight, now make sure no objects are blocking the view by using a raycast
             direction = Player.transform.position - transform.position;
