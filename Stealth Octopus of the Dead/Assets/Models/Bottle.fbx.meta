@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 3e017d0684fe3854089d3b8348057016
-timeCreated: 1466394562
-licenseType: Pro
+guid: 7c47265d6b1fc53489982a05de0eb7c6
+timeCreated: 1466475475
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCylinder2
+    4300000: polySurface359
     9500000: //RootNode
   materials:
     importMaterials: 1
