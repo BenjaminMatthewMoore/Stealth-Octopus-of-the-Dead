@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 hMovement; // Horizontal movement.
     private Vector3 lastFrameVelocity;
 
+
     // Use this for initialization
     void Start()
     {
