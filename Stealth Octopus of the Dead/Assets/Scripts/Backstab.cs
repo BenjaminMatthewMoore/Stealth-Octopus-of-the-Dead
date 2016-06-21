@@ -13,17 +13,18 @@ public class Backstab : MonoBehaviour
     bool attacking;
 
     int closestIndex;
-    GameObject closestEnemy = null;
+    public GameObject closestEnemy;
     // Use this for initialization
 
     void Start()
     {
         startPos = this.transform.position;
         attacking = false;
+        closestEnemy = null;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         findClosestEnemy();
         if (Input.GetKey(KeyCode.E) && closestEnemy != null && !attacking)
@@ -33,10 +34,10 @@ public class Backstab : MonoBehaviour
                 Vector3 tempDist = this.transform.position - closestEnemy.transform.position;
                 float dist = tempDist.magnitude;
 
-                if (dist < AttackRange)
+                if (dist <= AttackRange)
                 {
-
                     StartCoroutine(DoActivateCoroutine());
+                    closestEnemy = null;
                 }
             }
         }
@@ -59,7 +60,7 @@ public class Backstab : MonoBehaviour
             foundEnemy = true;
             Vector3 tempDist = this.transform.position - hitColliders[i].transform.position;
             float dist = tempDist.magnitude;
-            if (dist > distance)
+            if (dist < distance || distance == 0)
             {
                 distance = dist;
                 closestIndex = i;
