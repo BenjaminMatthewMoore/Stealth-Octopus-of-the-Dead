@@ -15,9 +15,19 @@ public class EnemySight : MonoBehaviour {
 
     //=============================
     //General Variables
+    [Tooltip("Whether or not the player is in sight")]
     public bool PlayerInSight;
-    public double CountdownDuration; 
-    
+    [Tooltip("Whether or not the play is detected")]
+    public bool PlayerDetected; 
+    [Tooltip("How long the Enemy's light will be disabled when hit")]
+    public double CountdownDuration;
+    [Tooltip("How long in seconds it will take the enemy to detect the player")]
+    public double DetectionTime;
+    private double DetectionLevel;
+    [Tooltip("How quickly the enemy's detection level will be reduced")]
+    public float SightCooldownSpeed;
+
+
     private double CountdownRemaining; 
     //=============================
 
@@ -31,12 +41,14 @@ public class EnemySight : MonoBehaviour {
 
         //Initialise any variables that require a default; 
         PlayerInSight = false;
+        PlayerDetected = false; 
+        DetectionLevel = 0.0f; 
         CountdownRemaining = 0.0f; 
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         //See if the player is within the view and range of the spotlight. 
         //Angle: 
         Vector3 direction = Player.transform.position - transform.position;
@@ -65,12 +77,25 @@ public class EnemySight : MonoBehaviour {
             Spotlight.enabled = true; 
         }
 
-        //if the player is in sight end the level. 
+        //if the player is in sight add to detection level 
         if (PlayerInSight)
         {
-            endgame.EndLevel(); 
+            DetectionLevel += Time.deltaTime;
+            if (DetectionLevel >= DetectionTime)
+                PlayerDetected = true; 
         }
-
+        //if the player isn't in sight take away from detection level
+        if (!PlayerInSight)
+        {
+            DetectionLevel -= Time.deltaTime * SightCooldownSpeed;
+            if (DetectionLevel <= 0.0f)
+                DetectionLevel = 0.0f; 
+        }
+        //if the player has been detected end the level 
+        if (PlayerDetected)
+        {
+            endgame.EndLevel();
+        }
 	}
 
 
